@@ -22,6 +22,9 @@
   --aviso-borda:#F59E0B;
   --aviso-texto:#92400E;
   --max:1120px;
+  /* Foco da foto de fundo do topo. Mude so esta linha se o enquadramento sair errado.
+     1o valor = horizontal (0% esquerda, 100% direita), 2o = vertical (0% topo, 100% base). */
+  --foto-foco: 78% 30%;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -59,12 +62,26 @@ nav{
 @media(max-width:860px){.nav-links{display:none}}
 
 /* ---------- HERO ---------- */
-header{padding:76px 0 64px;position:relative;overflow:hidden}
-header::before{
-  content:'';position:absolute;top:-180px;right:-140px;width:460px;height:460px;
-  background:radial-gradient(circle,rgba(139,92,246,.16),transparent 70%);
-  border-radius:50%;pointer-events:none;
+header{
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  min-height:600px;padding:72px 0;
+  background-image:url('https://animeflix.com.br/wp-content/uploads/2026/10/Vanessa.jpg');
+  background-size:cover;
+  background-position:var(--foto-foco);
+  background-repeat:no-repeat;
 }
+/* Veu que clareia a esquerda para o texto ficar legivel e deixa a direita limpa */
+header::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,
+    var(--fundo) 0%,
+    rgba(251,250,255,.97) 30%,
+    rgba(251,250,255,.80) 46%,
+    rgba(251,250,255,.30) 60%,
+    rgba(251,250,255,0) 74%);
+}
+header .wrap{position:relative;z-index:1}
 .disponivel{
   display:inline-flex;align-items:center;gap:8px;
   background:#ECFDF5;color:#065F46;border:1px solid #A7F3D0;
@@ -75,7 +92,29 @@ header h1{font-size:clamp(2.3rem,5.5vw,3.6rem);margin-bottom:22px;max-width:16ch
 header h1 em{font-style:normal;color:var(--roxo)}
 .sub{font-size:1.12rem;color:var(--cinza);max-width:62ch;margin-bottom:34px}
 .sub strong{color:var(--escuro);font-weight:600}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:46px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.hero-txt{max-width:560px}
+.hero-txt .sub{max-width:52ch}
+@media(max-width:860px){
+  header{min-height:540px;background-position:82% 25%}
+  header::before{
+    background:linear-gradient(90deg,
+      var(--fundo) 0%,
+      rgba(251,250,255,.96) 34%,
+      rgba(251,250,255,.62) 56%,
+      rgba(251,250,255,.08) 80%);
+  }
+  .hero-txt{max-width:none}
+}
+@media(max-width:540px){
+  header{min-height:0;padding:56px 0 48px;background-position:86% 22%}
+  header::before{
+    background:linear-gradient(180deg,
+      rgba(251,250,255,.90) 0%,
+      rgba(251,250,255,.93) 55%,
+      var(--fundo) 100%);
+  }
+}
 .tags{display:flex;flex-wrap:wrap;gap:8px}
 .tag{
   background:var(--branco);border:1px solid var(--cinza-claro);
@@ -152,6 +191,42 @@ section h2{font-size:clamp(1.7rem,3.6vw,2.4rem);margin-bottom:16px;max-width:20c
 .perfil-desc{font-size:.9rem;color:var(--cinza);margin-top:10px}
 .perfil-link{font-size:.85rem;font-weight:600;color:var(--roxo);margin-top:16px;display:inline-block}
 
+/* ---------- PERFIS (cards com mosaico) ---------- */
+.perfis-bloco{display:grid;grid-template-columns:270px 1fr;gap:40px;align-items:start}
+.perfis-intro h2{margin-bottom:14px}
+.perfis-intro .intro{margin-bottom:24px;font-size:.97rem}
+.perfis-trilha{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pcard{
+  background:var(--branco);border:1px solid var(--cinza-claro);border-radius:18px;
+  overflow:hidden;display:flex;flex-direction:column;transition:all .25s;
+}
+.pcard:hover{border-color:var(--roxo-claro);box-shadow:0 12px 34px rgba(109,40,217,.10);transform:translateY(-3px)}
+.pcard-top{display:flex;align-items:center;gap:10px;padding:14px 14px 12px}
+.pcard-avatar{
+  width:38px;height:38px;border-radius:50%;flex:none;
+  object-fit:cover;display:block;
+  border:1px solid var(--cinza-claro);background:var(--cinza-claro);
+}
+.pcard-nome{font-weight:600;font-size:.88rem;line-height:1.25}
+.pcard-handle{font-size:.76rem;color:var(--cinza)}
+.pcard-grade{width:100%;display:block;aspect-ratio:1/1;object-fit:cover;background:var(--cinza-claro)}
+.pcard-base{padding:14px;display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.pcard-cat{font-size:.78rem;color:var(--cinza)}
+.pcard-metrica{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--rosa);line-height:1.2}
+.pcard-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.pcard-links a{
+  font-size:.74rem;font-weight:600;color:var(--roxo);background:#F5F3FF;
+  border:1px solid transparent;padding:5px 11px;border-radius:999px;transition:all .2s;
+}
+.pcard-links a:hover{border-color:var(--roxo-claro);background:#EDE9FE}
+@media(max-width:1000px){
+  .perfis-bloco{grid-template-columns:1fr;gap:28px}
+  .perfis-trilha{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .perfis-trilha{grid-template-columns:1fr}
+}
+
 /* ---------- SITES ---------- */
 .site-item{
   background:var(--branco);border:1px solid var(--cinza-claro);border-radius:16px;
@@ -163,6 +238,29 @@ section h2{font-size:clamp(1.7rem,3.6vw,2.4rem);margin-bottom:16px;max-width:20c
 .site-url{font-size:.86rem;color:var(--cinza)}
 .site-stack{font-size:.78rem;font-weight:600;color:var(--roxo);background:#F5F3FF;padding:5px 12px;border-radius:999px;white-space:nowrap}
 .lista-sites{display:flex;flex-direction:column;gap:12px}
+
+/* ---------- SITES (cards com captura) ---------- */
+.sites-bloco{display:grid;grid-template-columns:270px 1fr;gap:40px;align-items:start}
+.sites-intro h2{margin-bottom:14px}
+.sites-intro .intro{margin-bottom:24px;font-size:.97rem}
+.sites-trilha{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.scard{display:block;transition:all .25s}
+.scard-capa{
+  border:1px solid var(--cinza-claro);border-radius:16px;overflow:hidden;
+  background:var(--branco);transition:all .25s;
+}
+.scard:hover .scard-capa{border-color:var(--roxo-claro);box-shadow:0 12px 34px rgba(109,40,217,.10);transform:translateY(-3px)}
+.scard-capa img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;background:var(--cinza-claro)}
+.scard-nome{font-family:'Fraunces',serif;font-weight:700;font-size:1rem;margin-top:14px}
+.scard-tipo{font-size:.84rem;color:var(--cinza);margin-top:2px}
+.scard-url{font-size:.78rem;color:var(--roxo);font-weight:600;margin-top:6px;display:inline-block}
+@media(max-width:1000px){
+  .sites-bloco{grid-template-columns:1fr;gap:28px}
+  .sites-trilha{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .sites-trilha{grid-template-columns:1fr}
+}
 
 /* ---------- FERRAMENTAS ---------- */
 .ferr-grupo{margin-bottom:30px}
@@ -231,49 +329,54 @@ footer{padding:36px 0;border-top:1px solid var(--cinza-claro);margin-top:72px}
 
 <header>
   <div class="wrap">
-    <div class="disponivel"><span class="ponto"></span> Aberta a oportunidades remotas</div>
-    <h1>Marketing digital <em>ponta a ponta</em>, da estratégia ao código.</h1>
-    <p class="sub">
-      Sou publicitária e coordeno o marketing de um grupo com <strong>três marcas simultâneas</strong>.
-      Na prática, isso significa planejar a estratégia, rodar <strong>tráfego pago</strong>,
-      supervisionar o <strong>CRM</strong>, produzir conteúdo, <strong>desenvolver os sites</strong>
-      e construir os <strong>painéis de dados</strong> que medem tudo isso.
-      Já escalei portais de conteúdo a dezenas de milhões de acessos mensais.
-    </p>
-    <div class="hero-btns">
-      <a href="https://wa.me/553491348533" target="_blank" rel="noopener" class="btn btn-cheio">Falar comigo no WhatsApp</a>
-      <a href="#cases" class="btn btn-vazio">Ver resultados</a>
-    </div>
-    <div class="tags">
-      <span class="tag">Meta Ads</span>
-      <span class="tag">TikTok Ads</span>
-      <span class="tag">CRM e automação</span>
-      <span class="tag">SEO e conteúdo</span>
-      <span class="tag">WordPress e Elementor</span>
-      <span class="tag">Dashboards e dados</span>
-      <span class="tag">Gestão de equipe</span>
+    <div class="hero-txt">
+      <div class="disponivel"><span class="ponto"></span> Aberta a oportunidades remotas</div>
+        <h1>Marketing digital <em>ponta a ponta</em>, da estratégia ao código.</h1>
+        <p class="sub">
+          Sou publicitária e coordeno o marketing de um grupo com <strong>três marcas simultâneas</strong>.
+          Na prática, isso significa planejar a estratégia, rodar <strong>tráfego pago</strong>,
+          supervisionar o <strong>CRM</strong>, produzir conteúdo, <strong>desenvolver os sites</strong>
+          e construir os <strong>painéis de dados</strong> que medem tudo isso.
+          Já escalei portais de conteúdo a dezenas de milhões de acessos mensais.
+        </p>
+        <div class="hero-btns">
+          <a href="https://wa.me/553491348533" target="_blank" rel="noopener" class="btn btn-cheio">Falar comigo no WhatsApp</a>
+          <a href="#cases" class="btn btn-vazio">Ver resultados</a>
+        </div>
+        <div class="tags">
+          <span class="tag">Meta Ads</span>
+          <span class="tag">TikTok Ads</span>
+          <span class="tag">CRM e automação</span>
+          <span class="tag">SEO e conteúdo</span>
+          <span class="tag">WordPress e Elementor</span>
+          <span class="tag">Dashboards e dados</span>
+          <span class="tag">Gestão de equipe</span>
+        </div>
     </div>
 
-    <div class="stats reveal">
-      <div class="stat">
-        <div class="stat-num">50 mi+</div>
-        <div class="stat-lab">acessos mensais no pico do Jornal Contábil</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">350 mil+</div>
-        <div class="stat-lab">seguidores em perfis sob gestão</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">3</div>
-        <div class="stat-lab">marcas coordenadas simultaneamente</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">3</div>
-        <div class="stat-lab">sites desenvolvidos e mantidos</div>
-      </div>
-    </div>
   </div>
 </header>
+
+<div class="wrap">
+  <div class="stats reveal">
+    <div class="stat">
+      <div class="stat-num">50 mi+</div>
+      <div class="stat-lab">acessos mensais no pico do Jornal Contábil</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">350 mil+</div>
+      <div class="stat-lab">seguidores em perfis sob gestão</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-lab">marcas coordenadas simultaneamente</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-lab">sites desenvolvidos e mantidos</div>
+    </div>
+  </div>
+</div>
 
 <section id="atuacao">
   <div class="wrap">
@@ -442,79 +545,131 @@ footer{padding:36px 0;border-top:1px solid var(--cinza-claro);margin-top:72px}
 
 <section id="perfis">
   <div class="wrap">
-    <div class="eyebrow reveal">Perfis sob gestão</div>
-    <h2 class="reveal">Contas que eu planejo, produzo e analiso</h2>
-    <p class="intro reveal">Nichos diferentes, da cultura geek ao agronegócio, cada um com estratégia própria.</p>
-
-    <div class="grid-2">
-      <a class="perfil reveal" href="https://www.instagram.com/jornalcontabil/" target="_blank" rel="noopener">
-        <span class="perfil-selo">Portal de notícias</span>
-        <div class="perfil-handle">@jornalcontabil</div>
-        <div class="perfil-metrica">317 mil</div>
-        <div class="perfil-desc">Contabilidade, finanças e empreendedorismo. Artes para notícias, conteúdo informativo e distribuição editorial.</div>
-        <span class="perfil-link">Ver no Instagram →</span>
-      </a>
-
-      <a class="perfil reveal" href="https://www.instagram.com/animeflixbr/" target="_blank" rel="noopener">
-        <span class="perfil-selo">Projeto próprio</span>
-        <div class="perfil-handle">@animeflixbr</div>
-        <div class="perfil-metrica">24 mil</div>
-        <div class="perfil-desc">Notícias, estreias e teorias de anime. Instagram, TikTok e canal de WhatsApp com 40 mil pessoas.</div>
-        <span class="perfil-link">Ver no Instagram →</span>
-      </a>
-
-      <a class="perfil reveal" href="https://www.instagram.com/viveiroflorabrasil/" target="_blank" rel="noopener">
-        <span class="perfil-selo">Agronegócio</span>
-        <div class="perfil-handle">@viveiroflorabrasil</div>
-        <div class="perfil-metrica">13 mil</div>
-        <div class="perfil-desc">Viveiro de mudas de maracujá em Araguari. Conteúdo, artes, tráfego pago e presença em Instagram e TikTok.</div>
-        <span class="perfil-link">Ver no Instagram →</span>
-      </a>
-
-      <a class="perfil reveal" href="https://www.instagram.com/fritonopote/" target="_blank" rel="noopener">
-        <span class="perfil-selo">Food service</span>
-        <div class="perfil-handle">@fritonopote</div>
-        <div class="perfil-metrica">8,5 mil</div>
-        <div class="perfil-desc">Delivery de hambúrguer, frango frito e massa. Criação de conteúdo, artes promocionais e campanhas.</div>
-        <span class="perfil-link">Ver no Instagram →</span>
-      </a>
+    <div class="perfis-bloco">
+      <div class="perfis-intro reveal">
+        <div class="eyebrow">Redes sociais</div>
+        <h2>Perfis sob gestão</h2>
+        <p class="intro">
+          Criação de conteúdo, design e estratégia para nichos diferentes, da cultura geek
+          ao agronegócio, cada conta com objetivo e linguagem próprios.
+        </p>
+      </div>
+      <div class="perfis-trilha">
+      <article class="pcard reveal">
+        <div class="pcard-top">
+          <img class="pcard-avatar" src="https://instagram.fudi4-1.fna.fbcdn.net/v/t51.2885-19/480783469_1860147784742391_1785336402343517855_n.jpg?stp=dst-jpg_s150x150_tt6&amp;_nc_cat=108&amp;_nc_map=urlgen_bucketless&amp;ccb=7-5&amp;_nc_sid=f7ccc5&amp;efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&amp;_nc_ohc=KVP06zCRWiQQ7kNvwE2NU7k&amp;_nc_oc=AdqaVv_AspYDYOiHsZdvOLBZZNFOzkFEOP5vT3ay7nzchPgnwBZ2kPGvaRrKAFNXmGw&amp;_nc_zt=24&amp;_nc_ht=instagram.fudi4-1.fna&amp;_nc_ss=7a6a8&amp;oh=00_AQNKX1ZPNOZfOJUpZMQGFrjm_J9mDm_X7f6OQ0skEq5mqA&amp;oe=6AD40B1A" alt="Logo do perfil @jornalcontabil" loading="lazy">
+          <div>
+            <div class="pcard-nome">Jornal Contábil</div>
+            <div class="pcard-handle">@jornalcontabil</div>
+          </div>
+        </div>
+        <img class="pcard-grade" src="https://animeflix.com.br/wp-content/uploads/2026/10/JC.jpg" alt="Peças criadas para Jornal Contábil" loading="lazy">
+        <div class="pcard-base">
+          <div class="pcard-cat">Informativo e contábil</div>
+          <div class="pcard-metrica">317 mil seguidores</div>
+          <div class="pcard-links">
+          <a href="https://www.instagram.com/jornalcontabil/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </article>
+      <article class="pcard reveal">
+        <div class="pcard-top">
+          <img class="pcard-avatar" src="https://instagram.fudi4-1.fna.fbcdn.net/v/t51.2885-19/468584048_582063597847369_3299875265432635251_n.jpg?stp=dst-jpg_s150x150_tt6&amp;_nc_cat=109&amp;_nc_map=urlgen_bucketless&amp;ccb=7-5&amp;_nc_sid=f7ccc5&amp;efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy41MDAuQzMifQ%3D%3D&amp;_nc_ohc=hkoUz_E4Sm4Q7kNvwEqGGBW&amp;_nc_oc=AdpqA6EOQqA2LyDJ5vDbm92DW33gZSQZMz_JvpJEHJZ7jUdp-oAHhBRFfAVtqwgXcfI&amp;_nc_zt=24&amp;_nc_ht=instagram.fudi4-1.fna&amp;_nc_ss=7a6a8&amp;oh=00_AQNqGDE5vUseyQ98wGj4Oqo7IoB4khSKFQA-BYbUmwaqog&amp;oe=6AD416E8" alt="Logo do perfil @animeflixbr" loading="lazy">
+          <div>
+            <div class="pcard-nome">AnimeFlix Brasil</div>
+            <div class="pcard-handle">@animeflixbr</div>
+          </div>
+        </div>
+        <img class="pcard-grade" src="https://animeflix.com.br/wp-content/uploads/2026/10/AF.jpg" alt="Peças criadas para AnimeFlix Brasil" loading="lazy">
+        <div class="pcard-base">
+          <div class="pcard-cat">Animes e cultura pop</div>
+          <div class="pcard-metrica">24 mil seguidores</div>
+          <div class="pcard-links">
+          <a href="https://www.instagram.com/animeflixbr/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@animeflixbr" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </article>
+      <article class="pcard reveal">
+        <div class="pcard-top">
+          <img class="pcard-avatar" src="https://instagram.fudi4-1.fna.fbcdn.net/v/t51.82787-19/657150381_18319519540264953_3089249385304856849_n.jpg?stp=dst-jpg_s150x150_tt6&amp;_nc_cat=110&amp;_nc_map=urlgen_bucketless&amp;ccb=7-5&amp;_nc_sid=f7ccc5&amp;efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&amp;_nc_ohc=DDcN-DJBAtUQ7kNvwHpXr1R&amp;_nc_oc=AdrY6jjHC85V1fm0his8WvqVmvWrLhDZeElpKWv8tTzzDJ6dcDwiq-9X6HOWy0CLTxk&amp;_nc_zt=24&amp;_nc_ht=instagram.fudi4-1.fna&amp;_nc_gid=rOKtJPa3SRYdBJZhy5ds0Q&amp;_nc_ss=7a6a8&amp;oh=00_AQPVeklL0oKiu5dxnB8Qc1c6WFlodAu5iaOVAkJ-JVvRmg&amp;oe=6AD40ADC" alt="Logo do perfil @viveiroflorabrasil" loading="lazy">
+          <div>
+            <div class="pcard-nome">Viveiro Flora Brasil</div>
+            <div class="pcard-handle">@viveiroflorabrasil</div>
+          </div>
+        </div>
+        <img class="pcard-grade" src="https://animeflix.com.br/wp-content/uploads/2026/10/Viveiro.jpg" alt="Peças criadas para Viveiro Flora Brasil" loading="lazy">
+        <div class="pcard-base">
+          <div class="pcard-cat">Agronegócio e sustentabilidade</div>
+          <div class="pcard-metrica">13 mil seguidores</div>
+          <div class="pcard-links">
+          <a href="https://www.instagram.com/viveiroflorabrasil/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@viveiroflorabrasil" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </article>
+      <article class="pcard reveal">
+        <div class="pcard-top">
+          <img class="pcard-avatar" src="https://instagram.fudi4-1.fna.fbcdn.net/v/t51.82787-19/787831271_18439183375193659_7443237039145860141_n.jpg?stp=dst-jpg_s150x150_tt6&amp;_nc_cat=103&amp;_nc_map=urlgen_bucketless&amp;ccb=7-5&amp;_nc_sid=f7ccc5&amp;efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy44MjcuQzMifQ%3D%3D&amp;_nc_ohc=vraKWwxBhlMQ7kNvwGvrDx4&amp;_nc_oc=Adr_RrBzY7joWqK1fG85u0sx5DzYEe60QzEVlUt3_Row30gAr4JwYT-3Jls09azu2as&amp;_nc_zt=24&amp;_nc_ht=instagram.fudi4-1.fna&amp;_nc_gid=8yUMIKocp1uy4MgRk3I91w&amp;_nc_ss=7a6a8&amp;oh=00_AQNxFDtpxj2LuLhk9W8NZv4lWrGe0dSWQPAg91clUGWTtg&amp;oe=6AD3FC29" alt="Logo do perfil @fritonopote" loading="lazy">
+          <div>
+            <div class="pcard-nome">Frito no Pote</div>
+            <div class="pcard-handle">@fritonopote</div>
+          </div>
+        </div>
+        <img class="pcard-grade" src="https://animeflix.com.br/wp-content/uploads/2026/10/Frito.jpg" alt="Peças criadas para Frito no Pote" loading="lazy">
+        <div class="pcard-base">
+          <div class="pcard-cat">Hambúrguer e delivery</div>
+          <div class="pcard-metrica">8,5 mil seguidores</div>
+          <div class="pcard-links">
+          <a href="https://www.instagram.com/fritonopote/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </article>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="sites">
   <div class="wrap">
-    <div class="eyebrow reveal">Sites e portais</div>
-    <h2 class="reveal">Projetos que eu construí e mantenho</h2>
-    <p class="intro reveal">
-      Desenvolvimento, publicação e manutenção. Não é só o conteúdo do site, é o site.
-    </p>
-
-    <div class="lista-sites" style="margin-bottom:34px">
-      <a class="site-item reveal" href="https://passiflorabrasil.com.br/" target="_blank" rel="noopener">
-        <div>
-          <div class="site-nome">Passiflora Brasil</div>
-          <div class="site-url">passiflorabrasil.com.br</div>
-        </div>
-        <span class="site-stack">WordPress</span>
-      </a>
-      <a class="site-item reveal" href="https://viveiroflorabrasil.com.br/" target="_blank" rel="noopener">
-        <div>
-          <div class="site-nome">Viveiro Flora Brasil</div>
-          <div class="site-url">viveiroflorabrasil.com.br</div>
-        </div>
-        <span class="site-stack">WordPress</span>
-      </a>
-      <a class="site-item reveal" href="https://terravegetalnovociclo.com.br/" target="_blank" rel="noopener">
-        <div>
-          <div class="site-nome">Terra Vegetal | Novo Ciclo</div>
-          <div class="site-url">terravegetalnovociclo.com.br</div>
-        </div>
-        <span class="site-stack">WordPress</span>
-      </a>
+    <div class="sites-bloco">
+      <div class="sites-intro reveal">
+        <div class="eyebrow">Desenvolvimento web</div>
+        <h2>Sites que eu desenvolvo e mantenho</h2>
+        <p class="intro">
+          Sites institucionais e páginas de produto das marcas em que atuo, construídos por mim
+          do design à publicação, com manutenção contínua.
+        </p>
+      </div>
+      <div class="sites-trilha">
+        <a class="scard reveal" href="https://viveiroflorabrasil.com.br/" target="_blank" rel="noopener">
+          <div class="scard-capa">
+            <img src="https://animeflix.com.br/wp-content/uploads/2026/10/Viveiro-Site.jpg" alt="Captura do site Viveiro Flora Brasil" loading="lazy">
+          </div>
+          <div class="scard-nome">Viveiro Flora Brasil</div>
+          <div class="scard-tipo">Site institucional</div>
+          <span class="scard-url">viveiroflorabrasil.com.br →</span>
+        </a>
+        <a class="scard reveal" href="https://terravegetalnovociclo.com.br/" target="_blank" rel="noopener">
+          <div class="scard-capa">
+            <img src="https://animeflix.com.br/wp-content/uploads/2026/10/Terra-Vegetal-Site.jpg" alt="Captura do site Terra Vegetal | Novo Ciclo" loading="lazy">
+          </div>
+          <div class="scard-nome">Terra Vegetal | Novo Ciclo</div>
+          <div class="scard-tipo">Site institucional</div>
+          <span class="scard-url">terravegetalnovociclo.com.br →</span>
+        </a>
+        <a class="scard reveal" href="https://passiflorabrasil.com.br/" target="_blank" rel="noopener">
+          <div class="scard-capa">
+            <img src="https://animeflix.com.br/wp-content/uploads/2026/10/Perola-Site.jpg" alt="Captura do site Passiflora Brasil" loading="lazy">
+          </div>
+          <div class="scard-nome">Passiflora Brasil</div>
+          <div class="scard-tipo">Site institucional</div>
+          <span class="scard-url">passiflorabrasil.com.br →</span>
+        </a>
+      </div>
     </div>
 
-    <div class="eyebrow reveal" style="margin-top:46px">Conteúdo editorial</div>
+    <div class="eyebrow reveal" style="margin-top:56px">Conteúdo editorial</div>
     <h3 class="reveal" style="font-size:1.4rem;margin-bottom:22px">Portais em que escrevi e planejei pauta</h3>
     <div class="lista-sites">
       <a class="site-item reveal" href="https://jornalcontabil.com.br" target="_blank" rel="noopener">
