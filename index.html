@@ -3,379 +3,584 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vanessa Marques — Social Media, Designer & Marketing de Conteúdo</title>
+<title>Vanessa Marques | Coordenadora de Marketing Digital</title>
+<meta name="description" content="Coordenadora de marketing digital full stack: tráfego pago, CRM, conteúdo, SEO, desenvolvimento web e automação de dados. Disponível para posições remotas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#221A33;
-    --cream:#F8F3FB;
-    --paper:#FFFDFB;
-    --purple-deep:#5B2E9C;
-    --purple:#8B4FE0;
-    --purple-soft:#EBDFFA;
-    --pink:#F0559C;
-    --pink-soft:#FCE3EF;
-    --line: rgba(34,26,51,0.12);
-    --shadow: 0 18px 40px rgba(91,46,156,0.14);
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'Poppins', sans-serif;
-    font-weight:400;
-    overflow-x:hidden;
-    background-image: radial-gradient(circle at 1px 1px, rgba(139,79,224,0.09) 1px, transparent 0);
-    background-size: 26px 26px;
-  }
-  ::selection{ background:var(--purple); color:#fff; }
-  .script{ font-family:'Caveat', cursive; }
-  .display{ font-family:'Archivo Black', sans-serif; }
-  a{ color:inherit; text-decoration:none; }
-  img{ max-width:100%; display:block; }
-  button{ font-family:inherit; cursor:pointer; border:none; background:none; }
-  .wrap{ max-width:1180px; margin:0 auto; padding:0 28px; }
+:root{
+  --roxo:#6D28D9;
+  --roxo-claro:#8B5CF6;
+  --rosa:#DB2777;
+  --escuro:#1A1523;
+  --cinza:#6B6478;
+  --cinza-claro:#E8E4F0;
+  --fundo:#FBFAFF;
+  --branco:#FFFFFF;
+  --aviso:#FEF3C7;
+  --aviso-borda:#F59E0B;
+  --aviso-texto:#92400E;
+  --max:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--fundo);
+  color:var(--escuro);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.15;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
 
-  .tape{
-    position:absolute; width:70px; height:26px;
-    background: repeating-linear-gradient(135deg, rgba(255,255,255,0.55) 0 6px, rgba(255,255,255,0.28) 6px 12px), var(--purple-soft);
-    opacity:0.9; box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  }
+/* ---------- NAV ---------- */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(251,250,255,.88);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--cinza-claro);
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--roxo)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--cinza);transition:color .2s}
+.nav-links a:hover{color:var(--roxo)}
+.btn{
+  display:inline-block;padding:11px 22px;border-radius:999px;
+  font-size:.9rem;font-weight:600;transition:all .22s;border:none;cursor:pointer;
+}
+.btn-cheio{background:var(--roxo);color:#fff}
+.btn-cheio:hover{background:var(--roxo-claro);transform:translateY(-1px)}
+.btn-vazio{border:1.5px solid var(--cinza-claro);color:var(--escuro);background:transparent}
+.btn-vazio:hover{border-color:var(--roxo);color:var(--roxo)}
+@media(max-width:860px){.nav-links{display:none}}
 
-  /* ---------- nav ---------- */
-  header.site{
-    position:sticky; top:0; z-index:50;
-    background:rgba(248,243,251,0.86); backdrop-filter: blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:1180px; margin:0 auto; }
-  .nav-logo{ font-family:'Archivo Black'; font-size:1.05rem; letter-spacing:0.02em; }
-  .nav-logo span{ color:var(--purple); }
-  .nav-links{ display:flex; gap:28px; font-size:0.92rem; font-weight:500; }
-  .nav-links a{ position:relative; padding:4px 0; color:var(--ink); opacity:0.75; transition:opacity .2s; }
-  .nav-links a:hover{ opacity:1; }
-  .nav-links a::after{ content:""; position:absolute; left:0; bottom:-2px; width:0%; height:2px; background:var(--pink); transition:width .25s ease; }
-  .nav-links a:hover::after{ width:100%; }
-  .nav-cta{ background:var(--ink); color:#fff; padding:9px 18px; border-radius:100px; font-size:0.85rem; font-weight:600; white-space:nowrap; }
+/* ---------- HERO ---------- */
+header{padding:76px 0 64px;position:relative;overflow:hidden}
+header::before{
+  content:'';position:absolute;top:-180px;right:-140px;width:460px;height:460px;
+  background:radial-gradient(circle,rgba(139,92,246,.16),transparent 70%);
+  border-radius:50%;pointer-events:none;
+}
+.disponivel{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#ECFDF5;color:#065F46;border:1px solid #A7F3D0;
+  padding:7px 15px;border-radius:999px;font-size:.82rem;font-weight:600;margin-bottom:24px;
+}
+.ponto{width:8px;height:8px;border-radius:50%;background:#10B981;flex:none}
+header h1{font-size:clamp(2.3rem,5.5vw,3.6rem);margin-bottom:22px;max-width:16ch}
+header h1 em{font-style:normal;color:var(--roxo)}
+.sub{font-size:1.12rem;color:var(--cinza);max-width:62ch;margin-bottom:34px}
+.sub strong{color:var(--escuro);font-weight:600}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:46px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  background:var(--branco);border:1px solid var(--cinza-claro);
+  padding:6px 14px;border-radius:999px;font-size:.82rem;font-weight:500;color:var(--cinza);
+}
 
-  /* ---------- hero ---------- */
-  .hero{ position:relative; padding:88px 0 70px; overflow:hidden; }
-  .hero .wrap{ display:grid; grid-template-columns: 1fr 1fr; gap:56px; align-items:center; }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px; background:var(--ink); color:#fff; font-weight:600; font-size:0.78rem;
-    letter-spacing:0.08em; text-transform:uppercase; padding:8px 16px; border-radius:100px; margin-bottom:26px; transform:rotate(-2deg);
-  }
-  h1.hero-title{ font-family:'Archivo Black'; font-size:clamp(2.4rem, 5.4vw, 4rem); line-height:0.98; letter-spacing:-0.01em; }
-  h1.hero-title .accent{ color:var(--purple); display:block; }
-  .hero-lede{ margin-top:22px; font-size:1.1rem; line-height:1.55; max-width:520px; color:#463a5c; }
-  .hero-lede b{ color:var(--purple-deep); font-weight:600; }
-  .hero-actions{ margin-top:30px; display:flex; gap:14px; flex-wrap:wrap; }
-  .btn{ display:inline-flex; align-items:center; gap:8px; padding:14px 26px; border-radius:100px; font-weight:600; font-size:0.95rem; transition:transform .2s ease, box-shadow .2s ease; }
-  .btn-primary{ background:var(--purple); color:#fff; box-shadow:var(--shadow); }
-  .btn-primary:hover{ transform:translateY(-3px); }
-  .btn-ghost{ border:2px solid var(--ink); color:var(--ink); }
-  .btn-ghost:hover{ background:var(--ink); color:#fff; }
-  .hero-tags{ margin-top:30px; display:flex; gap:10px; flex-wrap:wrap; }
-  .tag{ font-size:0.82rem; font-weight:600; padding:7px 14px; border-radius:100px; background:var(--paper); border:1px solid var(--line); color:#5a4d70; }
+/* ---------- STATS ---------- */
+.stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:1px;background:var(--cinza-claro);
+  border:1px solid var(--cinza-claro);border-radius:18px;overflow:hidden;margin-top:54px;
+}
+.stat{background:var(--branco);padding:28px 24px}
+.stat-num{font-family:'Fraunces',serif;font-size:2.1rem;font-weight:700;color:var(--roxo);line-height:1.1}
+.stat-lab{font-size:.86rem;color:var(--cinza);margin-top:6px}
 
-  /* hero work collage instead of photo */
-  .hero-collage{ position:relative; height:420px; }
-  .hero-collage .card{
-    position:absolute; width:180px; border-radius:12px; overflow:hidden; box-shadow:var(--shadow);
-    border:5px solid var(--paper); transition:transform .25s ease;
-  }
-  .hero-collage .card:hover{ transform:scale(1.05) rotate(0deg) !important; z-index:5; }
-  .hero-collage .card img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .icon-tile{
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
-    background:var(--paper);
-  }
-  .icon-tile .icon-emoji{ font-size:2.6rem; }
-  .icon-tile .icon-label{ font-size:0.78rem; font-weight:700; color:var(--purple-deep); text-transform:uppercase; letter-spacing:0.04em; }
-  .hc1.icon-tile{ background:var(--purple-soft); }
-  .hc2.icon-tile{ background:var(--pink-soft); }
-  .hc3.icon-tile{ background:var(--purple-soft); }
-  .hc4.icon-tile{ background:var(--pink-soft); }
-  .hc1{ top:0; left:20px; width:200px; height:200px; transform:rotate(-7deg); z-index:2; }
-  .hc2{ top:40px; right:0; width:170px; height:220px; transform:rotate(6deg); z-index:1; }
-  .hc3{ bottom:0; left:70px; width:160px; height:160px; transform:rotate(4deg); z-index:3; }
-  .hc4{ bottom:20px; right:40px; width:150px; height:190px; transform:rotate(-5deg); z-index:2; }
-  .hero-collage .stat-note{
-    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) rotate(-3deg);
-    background:var(--pink-soft); border:1px solid rgba(240,85,156,0.25); border-radius:12px;
-    padding:16px 20px; text-align:center; box-shadow:var(--shadow); z-index:4; width:150px;
-  }
-  .stat-note b{ display:block; font-family:'Archivo Black'; font-size:1.5rem; color:var(--purple-deep); }
-  .stat-note span{ font-size:0.75rem; color:#6a5a85; font-weight:600; }
+/* ---------- SEÇÕES ---------- */
+section{padding:72px 0}
+.eyebrow{
+  font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--rosa);margin-bottom:12px;
+}
+section h2{font-size:clamp(1.7rem,3.6vw,2.4rem);margin-bottom:16px;max-width:20ch}
+.intro{color:var(--cinza);max-width:66ch;margin-bottom:44px;font-size:1.02rem}
 
-  .torn{ position:relative; height:44px; background:var(--purple-deep); }
-  .torn svg{ position:absolute; top:-1px; left:0; width:100%; height:44px; }
+/* ---------- GRIDS ---------- */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:20px}
+.card{
+  background:var(--branco);border:1px solid var(--cinza-claro);
+  border-radius:18px;padding:30px;transition:all .25s;
+}
+.card:hover{border-color:var(--roxo-claro);box-shadow:0 10px 32px rgba(109,40,217,.08);transform:translateY(-2px)}
+.card h3{font-size:1.18rem;margin-bottom:10px}
+.card p{color:var(--cinza);font-size:.95rem}
+.card ul{list-style:none;margin-top:14px}
+.card li{
+  color:var(--cinza);font-size:.9rem;padding-left:20px;position:relative;margin-bottom:7px;
+}
+.card li::before{content:'';position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--roxo-claro)}
+.card-num{
+  font-family:'Fraunces',serif;font-size:.8rem;font-weight:700;color:var(--rosa);
+  letter-spacing:.1em;margin-bottom:10px;display:block;
+}
 
-  section{ padding:88px 0; position:relative; }
-  .section-head{ max-width:640px; margin-bottom:50px; }
-  .kicker{ display:inline-block; font-family:'Caveat'; font-size:1.5rem; color:var(--pink); margin-bottom:6px; transform:rotate(-2deg); }
-  h2{ font-family:'Archivo Black'; font-size:clamp(1.8rem, 3.4vw, 2.6rem); line-height:1.08; }
-  h2 em{ font-style:normal; color:var(--purple); }
-  .section-head p{ margin-top:16px; font-size:1.05rem; color:#5a4d70; line-height:1.6; }
+/* ---------- CASES ---------- */
+.case{
+  background:var(--branco);border:1px solid var(--cinza-claro);border-radius:18px;
+  padding:32px;display:flex;flex-direction:column;gap:18px;
+}
+.case-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.case h3{font-size:1.22rem}
+.case-marca{font-size:.8rem;font-weight:600;color:var(--roxo);background:#F5F3FF;padding:4px 12px;border-radius:999px}
+.case-bloco{border-left:2px solid var(--cinza-claro);padding-left:16px}
+.case-rot{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza);margin-bottom:5px}
+.case-txt{font-size:.95rem;color:var(--escuro)}
+.preencher{
+  background:var(--aviso);border:1px dashed var(--aviso-borda);color:var(--aviso-texto);
+  padding:10px 14px;border-radius:9px;font-size:.88rem;font-weight:500;
+}
 
-  /* ---------- about (no photo, stat-forward) ---------- */
-  .about{ background:var(--purple-deep); color:#fff; }
-  .about .kicker{ color:#ffd166; }
-  .about-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:60px; align-items:start; }
-  .about p{ font-size:1.05rem; line-height:1.75; color:#e8ddf7; }
-  .about p + p{ margin-top:16px; }
-  .about p b{ color:#fff; }
-  .about-stats{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:8px; }
-  .stat-box{ background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.16); border-radius:16px; padding:24px; }
-  .stat-box b{ display:block; font-family:'Archivo Black'; font-size:2rem; color:#ffd166; }
-  .stat-box span{ font-size:0.85rem; color:#cdbde9; }
-  .areas{ margin-top:34px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-  .area-card{ background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.16); border-radius:14px; padding:18px; transition:transform .2s, background .2s; }
-  .area-card:hover{ transform:translateY(-4px); background:rgba(255,255,255,0.14); }
-  .area-card .ic{ font-size:1.5rem; margin-bottom:10px; }
-  .area-card h4{ font-size:0.95rem; font-weight:700; margin-bottom:4px; }
-  .area-card p{ font-size:0.82rem; color:#cdbde9; line-height:1.4; }
+/* ---------- PERFIS ---------- */
+.perfil{
+  background:var(--branco);border:1px solid var(--cinza-claro);border-radius:18px;
+  padding:26px;transition:all .25s;display:block;
+}
+.perfil:hover{border-color:var(--roxo-claro);box-shadow:0 10px 32px rgba(109,40,217,.08);transform:translateY(-2px)}
+.perfil-selo{
+  display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--roxo);background:#F5F3FF;padding:4px 11px;border-radius:999px;margin-bottom:14px;
+}
+.perfil-handle{font-family:'Fraunces',serif;font-size:1.22rem;font-weight:700;margin-bottom:4px}
+.perfil-metrica{font-size:1.5rem;font-weight:700;color:var(--rosa);font-family:'Fraunces',serif;line-height:1.2}
+.perfil-desc{font-size:.9rem;color:var(--cinza);margin-top:10px}
+.perfil-link{font-size:.85rem;font-weight:600;color:var(--roxo);margin-top:16px;display:inline-block}
 
-  /* ---------- projects (clickable profile cards) ---------- */
-  .projects-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
-  .project-card{
-    display:block; background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:26px;
-    box-shadow:0 10px 24px rgba(91,46,156,0.06); transition:transform .25s ease, box-shadow .25s ease; position:relative;
-  }
-  .project-card:hover{ transform:translateY(-6px) rotate(-0.4deg); box-shadow:var(--shadow); border-color:var(--purple); }
-  .project-card .verified{
-    display:inline-flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:700; color:var(--purple-deep);
-    background:var(--purple-soft); padding:5px 10px; border-radius:100px; margin-bottom:14px;
-  }
-  .project-card h3{ font-family:'Archivo Black'; font-size:1.15rem; margin-bottom:4px; display:flex; align-items:center; gap:8px; }
-  .project-card .arrow{ font-size:1rem; color:var(--purple); opacity:0; transform:translateX(-4px); transition:all .2s; }
-  .project-card:hover .arrow{ opacity:1; transform:translateX(0); }
-  .project-card .stat{ font-family:'Caveat'; color:var(--pink); font-size:1.4rem; font-weight:700; margin-bottom:10px; }
-  .project-card ul{ list-style:none; }
-  .project-card li{ font-size:0.88rem; color:#5a4d70; padding-left:18px; position:relative; margin-bottom:6px; line-height:1.4; }
-  .project-card li::before{ content:"✦"; position:absolute; left:0; color:var(--purple); font-size:0.75rem; top:3px; }
-  .project-card .cta-line{ margin-top:14px; font-size:0.8rem; font-weight:700; color:var(--purple-deep); }
+/* ---------- SITES ---------- */
+.site-item{
+  background:var(--branco);border:1px solid var(--cinza-claro);border-radius:16px;
+  padding:24px 26px;display:flex;align-items:center;justify-content:space-between;
+  gap:16px;transition:all .25s;flex-wrap:wrap;
+}
+.site-item:hover{border-color:var(--roxo-claro);transform:translateX(3px)}
+.site-nome{font-family:'Fraunces',serif;font-weight:700;font-size:1.08rem}
+.site-url{font-size:.86rem;color:var(--cinza)}
+.site-stack{font-size:.78rem;font-weight:600;color:var(--roxo);background:#F5F3FF;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.lista-sites{display:flex;flex-direction:column;gap:12px}
 
-  /* ---------- editorial / portals ---------- */
-  .editorial{ background:var(--purple-soft); border-radius:32px; margin:0 auto; max-width:1180px; padding:64px 56px; }
-  .portals{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:12px; }
-  .portal-card{
-    display:block; background:var(--paper); border-radius:14px; padding:20px; border:1px solid var(--line);
-    transition:transform .2s, border-color .2s;
-  }
-  .portal-card:hover{ transform:translateY(-4px); border-color:var(--purple); }
-  .portal-card h4{ font-weight:700; font-size:0.98rem; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center; }
-  .portal-card p{ font-size:0.82rem; color:#5a4d70; line-height:1.4; }
-  .highlights{ display:flex; flex-wrap:wrap; gap:12px; margin-top:36px; }
-  .highlight-chip{ background:var(--ink); color:#fff; padding:10px 16px; border-radius:100px; font-size:0.84rem; font-weight:600; display:flex; align-items:center; gap:8px; }
+/* ---------- FERRAMENTAS ---------- */
+.ferr-grupo{margin-bottom:30px}
+.ferr-titulo{font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza);margin-bottom:12px}
+.ferr-lista{display:flex;flex-wrap:wrap;gap:9px}
+.ferr{
+  background:var(--branco);border:1px solid var(--cinza-claro);
+  padding:8px 16px;border-radius:9px;font-size:.88rem;font-weight:500;
+}
+.ferr.destaque{border-color:var(--roxo-claro);background:#F5F3FF;color:var(--roxo);font-weight:600}
 
-  /* ---------- tools ---------- */
-  .tools-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
-  .tool-pill{ background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:20px 14px; text-align:center; font-weight:600; font-size:0.86rem; transition:transform .2s, border-color .2s; }
-  .tool-pill:hover{ transform:translateY(-4px); border-color:var(--purple); }
-  .tool-pill .ic{ font-size:1.6rem; display:block; margin-bottom:8px; }
-  .skills-row{ margin-top:44px; }
-  .skills-row h3{ font-family:'Archivo Black'; font-size:1.2rem; margin-bottom:20px; }
-  .skill-tags{ display:flex; flex-wrap:wrap; gap:10px; }
-  .skill-tags span{ background:var(--pink-soft); color:var(--purple-deep); border:1px solid rgba(240,85,156,0.2); padding:9px 16px; border-radius:100px; font-size:0.85rem; font-weight:600; }
+/* ---------- TRAJETÓRIA ---------- */
+.linha{position:relative;padding-left:30px}
+.linha::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--cinza-claro)}
+.etapa{position:relative;padding-bottom:34px}
+.etapa:last-child{padding-bottom:0}
+.etapa::before{
+  content:'';position:absolute;left:-30px;top:7px;width:16px;height:16px;border-radius:50%;
+  background:var(--branco);border:3px solid var(--roxo-claro);
+}
+.etapa-cargo{font-family:'Fraunces',serif;font-size:1.12rem;font-weight:700}
+.etapa-emp{font-size:.92rem;color:var(--roxo);font-weight:600;margin-top:2px}
+.etapa-per{font-size:.82rem;color:var(--cinza);margin-top:2px}
+.etapa-desc{font-size:.93rem;color:var(--cinza);margin-top:10px;max-width:60ch}
 
-  /* ---------- results ---------- */
-  .results-wrap{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap:56px; }
-  .diff-list{ list-style:none; }
-  .diff-list li{ display:flex; gap:14px; align-items:flex-start; padding:14px 0; border-bottom:1px dashed var(--line); font-size:1rem; color:#3c3050; font-weight:500; }
-  .diff-list li .check{ width:26px; height:26px; border-radius:50%; background:var(--purple); color:#fff; flex:none; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; }
-  .results-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
-  .result-card{ background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:22px; transition:transform .2s; }
-  .result-card:hover{ transform:translateY(-4px); }
-  .result-card .ic{ font-size:1.4rem; margin-bottom:10px; }
-  .result-card p{ font-size:0.88rem; color:#5a4d70; line-height:1.45; }
-  .niches{ margin-top:56px; display:flex; flex-wrap:wrap; gap:14px; }
-  .niche{ background:var(--purple-deep); color:#fff; padding:10px 18px; border-radius:100px; font-size:0.85rem; font-weight:600; }
+/* ---------- CONTATO ---------- */
+.contato{background:var(--escuro);color:#fff;border-radius:26px;padding:56px 44px;text-align:center}
+.contato h2{color:#fff;margin:0 auto 16px;max-width:22ch}
+.contato p{color:#B8B0C7;max-width:52ch;margin:0 auto 32px}
+.contato-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-branco{background:#fff;color:var(--escuro)}
+.btn-branco:hover{background:var(--cinza-claro)}
+.btn-borda{border:1.5px solid rgba(255,255,255,.3);color:#fff}
+.btn-borda:hover{border-color:#fff;background:rgba(255,255,255,.08)}
 
-  /* ---------- contact / footer ---------- */
-  footer{ background:var(--ink); color:#fff; padding:100px 0 40px; position:relative; overflow:hidden; }
-  .contact-head{ text-align:center; max-width:640px; margin:0 auto 50px; }
-  .contact-head .script{ font-size:clamp(2.8rem,7vw,4.5rem); color:#fff; line-height:1; }
-  .contact-head p{ margin-top:18px; font-size:1.1rem; color:#c9bce0; }
-  .contact-grid{ max-width:680px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-  .contact-card{ background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:16px; padding:24px 18px; text-align:center; transition:transform .2s, background .2s; }
-  .contact-card:hover{ transform:translateY(-5px); background:rgba(255,255,255,0.12); }
-  .contact-card .ic{ font-size:1.6rem; margin-bottom:12px; }
-  .contact-card .label{ font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:#a493c4; margin-bottom:4px; }
-  .contact-card .val{ font-weight:600; font-size:0.92rem; word-break:break-word; }
-  .foot-bottom{ margin-top:70px; padding-top:26px; border-top:1px solid rgba(255,255,255,0.12); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:0.82rem; color:#8f7fae; }
+footer{padding:36px 0;border-top:1px solid var(--cinza-claro);margin-top:72px}
+.foot-in{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--cinza)}
 
-  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
-  .reveal.in{ opacity:1; transform:translateY(0); }
-
-  @media (max-width: 940px){
-    .nav-links{ display:none; }
-    .hero .wrap{ grid-template-columns:1fr; }
-    .hero-collage{ margin-top:20px; height:340px; }
-    .about-grid{ grid-template-columns:1fr; }
-    .about-stats{ grid-template-columns:1fr 1fr; }
-    .areas{ grid-template-columns:1fr 1fr; }
-    .projects-grid{ grid-template-columns:1fr; }
-    .portals{ grid-template-columns:repeat(2,1fr); }
-    .tools-grid{ grid-template-columns:repeat(3,1fr); }
-    .results-wrap{ grid-template-columns:1fr; }
-    .results-grid{ grid-template-columns:1fr; }
-    .editorial{ padding:44px 24px; border-radius:20px; }
-    .contact-grid{ grid-template-columns:1fr; }
-  }
+/* ---------- ANIMAÇÃO ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:640px){
+  section{padding:54px 0}
+  .contato{padding:42px 24px;border-radius:20px}
+  .card,.case{padding:24px}
+}
 </style>
 </head>
 <body>
 
-<header class="site">
-  <div class="nav">
-    <div class="nav-logo">vanessa<span>.</span>marques</div>
-    <nav class="nav-links">
-      <a href="#sobre">Sobre</a>
-      <a href="#projetos">Perfis</a>
+<nav>
+  <div class="wrap nav-in">
+    <a href="#" class="logo">vanessa.marques</a>
+    <div class="nav-links">
+      <a href="#atuacao">Atuação</a>
+      <a href="#cases">Cases</a>
+      <a href="#perfis">Perfis</a>
+      <a href="#sites">Sites</a>
+      <a href="#trajetoria">Trajetória</a>
       <a href="#ferramentas">Ferramentas</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <a class="nav-cta" href="https://wa.me/553491348533" target="_blank" rel="noopener">Vamos conversar</a>
+    </div>
+    <a href="#contato" class="btn btn-cheio">Contato</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="disponivel"><span class="ponto"></span> Aberta a oportunidades remotas</div>
+    <h1>Marketing digital <em>ponta a ponta</em>, da estratégia ao código.</h1>
+    <p class="sub">
+      Sou publicitária e coordeno o marketing de um grupo com <strong>três marcas simultâneas</strong>.
+      Na prática, isso significa planejar a estratégia, rodar <strong>tráfego pago</strong>,
+      supervisionar o <strong>CRM</strong>, produzir conteúdo, <strong>desenvolver os sites</strong>
+      e construir os <strong>painéis de dados</strong> que medem tudo isso.
+      Já escalei portais de conteúdo a dezenas de milhões de acessos mensais.
+    </p>
+    <div class="hero-btns">
+      <a href="https://wa.me/553491348533" target="_blank" rel="noopener" class="btn btn-cheio">Falar comigo no WhatsApp</a>
+      <a href="#cases" class="btn btn-vazio">Ver resultados</a>
+    </div>
+    <div class="tags">
+      <span class="tag">Meta Ads</span>
+      <span class="tag">TikTok Ads</span>
+      <span class="tag">CRM e automação</span>
+      <span class="tag">SEO e conteúdo</span>
+      <span class="tag">WordPress e Elementor</span>
+      <span class="tag">Dashboards e dados</span>
+      <span class="tag">Gestão de equipe</span>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat">
+        <div class="stat-num">50 mi+</div>
+        <div class="stat-lab">acessos mensais no pico do Jornal Contábil</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">350 mil+</div>
+        <div class="stat-lab">seguidores em perfis sob gestão</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-lab">marcas coordenadas simultaneamente</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-lab">sites desenvolvidos e mantidos</div>
+      </div>
+    </div>
   </div>
 </header>
 
-<section class="hero">
+<section id="atuacao">
   <div class="wrap">
-    <div>
-      <span class="eyebrow">💜 Portfólio</span>
-      <h1 class="hero-title">VANESSA<span class="accent">MARQUES</span></h1>
-      <p class="hero-lede">Publicitária, social media e designer que transforma ideias em <b>conteúdo que conecta, engaja e gera resultados</b> — unindo estratégia, criatividade e análise de dados.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#projetos">Ver perfis ✦</a>
-        <a class="btn btn-ghost" href="#contato">Fale comigo</a>
+    <div class="eyebrow reveal">Atuação</div>
+    <h2 class="reveal">O que eu faço, com responsabilidade de ponta a ponta</h2>
+    <p class="intro reveal">
+      Não é uma lista de serviços avulsos. São frentes que eu opero ao mesmo tempo,
+      dentro da mesma estratégia, com o resultado de uma alimentando a decisão da outra.
+    </p>
+
+    <div class="grid-3">
+      <div class="card reveal">
+        <span class="card-num">01</span>
+        <h3>Tráfego pago</h3>
+        <p>Gestão de verba e campanhas em Meta Ads e TikTok Ads, da estruturação de públicos ao acompanhamento de custo por resultado.</p>
+        <ul>
+          <li>Planejamento e alocação de orçamento</li>
+          <li>Criação de campanhas e públicos</li>
+          <li>Otimização por CPL e CPA</li>
+          <li>Instalação e checagem de pixel</li>
+        </ul>
       </div>
-      <div class="hero-tags">
-        <span class="tag">Social Media</span>
-        <span class="tag">Designer</span>
-        <span class="tag">Marketing de Conteúdo</span>
-        <span class="tag">SEO &amp; Redação</span>
-        <span class="tag">CRM &amp; Estratégia</span>
-        <span class="tag">Liderança de Equipes</span>
+
+      <div class="card reveal">
+        <span class="card-num">02</span>
+        <h3>CRM e automação</h3>
+        <p>Supervisão da operação de relacionamento, da captação do lead no formulário até o atendimento no WhatsApp.</p>
+        <ul>
+          <li>Chatwoot e Umbler Talk</li>
+          <li>Integração com WhatsApp via Meta Cloud API</li>
+          <li>Estruturação de funil e etapas</li>
+          <li>Formulários e captação de leads</li>
+        </ul>
       </div>
-    </div>
-    <div class="hero-collage">
-      <div class="card hc1 icon-tile"><span class="icon-emoji">🔗</span><span class="icon-label">Conexão</span></div>
-      <div class="card hc2 icon-tile"><span class="icon-emoji">📱</span><span class="icon-label">Redes Sociais</span></div>
-      <div class="card hc3 icon-tile"><span class="icon-emoji">👥</span><span class="icon-label">Audiência</span></div>
-      <div class="card hc4 icon-tile"><span class="icon-emoji">📈</span><span class="icon-label">Crescimento</span></div>
-      <div class="stat-note"><b>350 mil+</b><span>seguidores em perfis gerenciados</span></div>
+
+      <div class="card reveal">
+        <span class="card-num">03</span>
+        <h3>Desenvolvimento web</h3>
+        <p>Sites construídos por mim, do design à publicação, com manutenção contínua e páginas de produto orientadas a conversão.</p>
+        <ul>
+          <li>WordPress e Elementor</li>
+          <li>HTML, CSS e JavaScript</li>
+          <li>Design system e padronização</li>
+          <li>Hospedagem, domínio e manutenção</li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <span class="card-num">04</span>
+        <h3>Conteúdo e SEO</h3>
+        <p>Produção editorial com foco em tráfego orgânico, de pauta e redação a Web Stories e distribuição.</p>
+        <ul>
+          <li>Estratégia editorial e pauta</li>
+          <li>Redação otimizada para busca</li>
+          <li>Web Stories e formatos de descoberta</li>
+          <li>Google Analytics e Search Console</li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <span class="card-num">05</span>
+        <h3>Social media e comunidade</h3>
+        <p>Gestão de perfis em Instagram, TikTok e canais de WhatsApp, com criação própria de arte e vídeo.</p>
+        <ul>
+          <li>Planejamento e calendário de conteúdo</li>
+          <li>Design de peças e edição de vídeo</li>
+          <li>Gestão de comunidade e canais</li>
+          <li>Análise de desempenho por plataforma</li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <span class="card-num">06</span>
+        <h3>Dados e painéis internos</h3>
+        <p>Construção dos dashboards de gestão que a empresa usa para acompanhar marketing, ESG e RH.</p>
+        <ul>
+          <li>Google Apps Script e Sheets</li>
+          <li>Painéis web em JavaScript</li>
+          <li>Relatórios e apresentação de resultado</li>
+          <li>Automação de rotinas internas</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="torn">
-  <svg viewBox="0 0 1200 44" preserveAspectRatio="none"><path d="M0,20 L30,8 L60,26 L90,4 L120,22 L150,10 L180,28 L210,6 L240,24 L270,12 L300,20 L330,8 L360,26 L390,4 L420,22 L450,10 L480,28 L510,6 L540,24 L570,12 L600,20 L630,8 L660,26 L690,4 L720,22 L750,10 L780,28 L810,6 L840,24 L870,12 L900,20 L930,8 L960,26 L990,4 L1020,22 L1050,10 L1080,28 L1110,6 L1140,24 L1170,12 L1200,20 L1200,44 L0,44 Z" fill="#F8F3FB"></path></svg>
-</div>
+<section id="cases">
+  <div class="wrap">
+    <div class="eyebrow reveal">Cases</div>
+    <h2 class="reveal">Problema, o que eu fiz, o que mudou</h2>
+    <p class="intro reveal">
+      Três frentes em que o resultado é atribuível ao trabalho, e não ao acaso.
+    </p>
 
-<section class="about" id="sobre">
-  <div class="wrap about-grid">
-    <div class="reveal">
-      <span class="kicker">olá, eu sou a Vanessa 👋</span>
-      <h2>Criatividade, estratégia<br> e <em>propósito</em> em cada projeto.</h2>
-      <p>Sou publicitária com ampla experiência em veículos de comunicação, incluindo <b>gerência, parcerias, mídias sociais e criação de conteúdo</b> para portais de notícias e mídias sociais.</p>
-      <p>Tenho grande capacidade de identificar tendências, desenvolver estratégias criativas e analisar dados para gerar insights que impulsionam resultados.</p>
-      <p>Atuo unindo criatividade, planejamento e análise de desempenho para criar conteúdos relevantes, fortalecer marcas e construir conexões reais com o público certo.</p>
-    </div>
-    <div class="reveal">
-      <div class="about-stats">
-        <div class="stat-box"><b>350 mil+</b><span>seguidores em perfis gerenciados</span></div>
-        <div class="stat-box"><b>4</b><span>portais de conteúdo editorial</span></div>
-        <div class="stat-box"><b>SEO</b><span>foco em tráfego orgânico</span></div>
-        <div class="stat-box"><b>360°</b><span>estratégia, design e análise</span></div>
+    <div class="grid-2">
+      <div class="case reveal">
+        <div class="case-top">
+          <h3>Escala de portal editorial</h3>
+          <span class="case-marca">Jornal Contábil</span>
+        </div>
+        <div class="case-bloco">
+          <div class="case-rot">Desafio</div>
+          <div class="case-txt">Crescer audiência orgânica de um portal de nicho contábil e financeiro, num mercado dominado por grandes veículos.</div>
+        </div>
+        <div class="case-bloco">
+          <div class="case-rot">O que eu fiz</div>
+          <div class="case-txt">Estratégia editorial orientada por busca, produção em escala de artigos e Web Stories, e gestão do perfil social como canal de distribuição.</div>
+        </div>
+        <div class="case-bloco">
+          <div class="case-rot">Resultado</div>
+          <div class="case-txt">Mais de 50 milhões de acessos mensais no período de pico e 317 mil seguidores no perfil.</div>
+        </div>
       </div>
-      <div class="areas">
-        <div class="area-card"><div class="ic">📱</div><h4>Social Media</h4><p>Estratégia, gestão e crescimento de redes sociais.</p></div>
-        <div class="area-card"><div class="ic">✏️</div><h4>Design</h4><p>Artes criativas que comunicam com propósito.</p></div>
-        <div class="area-card"><div class="ic">🔍</div><h4>SEO &amp; Redação</h4><p>Textos otimizados que ranqueiam e convertem.</p></div>
-        <div class="area-card"><div class="ic">🗂️</div><h4>CRM</h4><p>Gestão de relacionamento e funil de clientes.</p></div>
-        <div class="area-card"><div class="ic">🎯</div><h4>Estratégia</h4><p>Planejamento orientado por objetivos e resultados.</p></div>
-        <div class="area-card"><div class="ic">👥</div><h4>Liderança de Equipes</h4><p>Gestão de pessoas, parcerias e processos.</p></div>
+
+      <div class="case reveal">
+        <div class="case-top">
+          <h3>Operação de tráfego pago multimarca</h3>
+          <span class="case-marca">Grupo Flora Brasil</span>
+        </div>
+        <div class="case-bloco">
+          <div class="case-rot">Desafio</div>
+          <div class="case-txt">Rodar aquisição paga para três marcas com públicos e ciclos de venda diferentes, dentro de um orçamento único.</div>
+        </div>
+        <div class="case-bloco">
+          <div class="case-rot">O que eu fiz</div>
+          <div class="case-txt">Estruturação das campanhas em Meta Ads e TikTok Ads, integração dos formulários ao CRM e acompanhamento do lead até o atendimento.</div>
+        </div>
+      </div>
+
+      <div class="case reveal">
+        <div class="case-top">
+          <h3>Site e presença digital do zero</h3>
+          <span class="case-marca">Passiflora Brasil</span>
+        </div>
+        <div class="case-bloco">
+          <div class="case-rot">Desafio</div>
+          <div class="case-txt">Marca sem presença digital própria, dependente de canais de terceiros para ser encontrada.</div>
+        </div>
+        <div class="case-bloco">
+          <div class="case-rot">O que eu fiz</div>
+          <div class="case-txt">Construí o site em WordPress, defini a identidade das páginas, estruturei a captação de leads e publiquei na hospedagem própria.</div>
+        </div>
+      </div>
+
+      <div class="case reveal">
+        <div class="case-top">
+          <h3>Comunidade de nicho construída do zero</h3>
+          <span class="case-marca">AnimeFlix Brasil</span>
+        </div>
+        <div class="case-bloco">
+          <div class="case-rot">Desafio</div>
+          <div class="case-txt">Criar e sustentar uma audiência própria de notícias de anime, sem verba de mídia.</div>
+        </div>
+        <div class="case-bloco">
+          <div class="case-rot">O que eu fiz</div>
+          <div class="case-txt">Portal com conteúdo otimizado para busca, perfis em Instagram e TikTok e canal de WhatsApp como camada de retenção.</div>
+        </div>
+        <div class="case-bloco">
+          <div class="case-rot">Resultado</div>
+          <div class="case-txt">24 mil seguidores no Instagram e canal de WhatsApp com 40 mil pessoas, construídos organicamente.</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="projetos">
+<section id="perfis">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="kicker">perfis gerenciados</span>
-      <h2>Designer &amp; <em>Mídias Sociais</em></h2>
-      <p>Atuação na criação, planejamento e gestão de conteúdo para diferentes nichos. Clique em um card para visitar.</p>
-    </div>
-    <div class="projects-grid">
-      <a class="project-card reveal" href="https://www.instagram.com/animeflixbr/" target="_blank" rel="noopener">
-        <span class="verified">✔ Perfil verificado</span>
-        <h3>@animeflixbr <span class="arrow">↗</span></h3>
-        <div class="stat">22,1 mil seguidores</div>
-        <ul>
-          <li>Conteúdo sobre animes, notícias, estreias e teorias</li>
-          <li>Canal no WhatsApp com audiência ativa</li>
-        </ul>
-        <div class="cta-line">Visitar Instagram →</div>
+    <div class="eyebrow reveal">Perfis sob gestão</div>
+    <h2 class="reveal">Contas que eu planejo, produzo e analiso</h2>
+    <p class="intro reveal">Nichos diferentes, da cultura geek ao agronegócio, cada um com estratégia própria.</p>
+
+    <div class="grid-2">
+      <a class="perfil reveal" href="https://www.instagram.com/jornalcontabil/" target="_blank" rel="noopener">
+        <span class="perfil-selo">Portal de notícias</span>
+        <div class="perfil-handle">@jornalcontabil</div>
+        <div class="perfil-metrica">317 mil</div>
+        <div class="perfil-desc">Contabilidade, finanças e empreendedorismo. Artes para notícias, conteúdo informativo e distribuição editorial.</div>
+        <span class="perfil-link">Ver no Instagram →</span>
       </a>
-      <a class="project-card reveal" href="https://www.instagram.com/jornalcontabil/" target="_blank" rel="noopener">
-        <span class="verified">✔ Perfil verificado</span>
-        <h3>@jornalcontabil <span class="arrow">↗</span></h3>
-        <div class="stat">317 mil seguidores</div>
-        <ul>
-          <li>Portal de notícias sobre contabilidade, finanças e empreendedorismo</li>
-          <li>Artes para notícias, dicas e conteúdos informativos</li>
-        </ul>
-        <div class="cta-line">Visitar Instagram →</div>
+
+      <a class="perfil reveal" href="https://www.instagram.com/animeflixbr/" target="_blank" rel="noopener">
+        <span class="perfil-selo">Projeto próprio</span>
+        <div class="perfil-handle">@animeflixbr</div>
+        <div class="perfil-metrica">24 mil</div>
+        <div class="perfil-desc">Notícias, estreias e teorias de anime. Instagram, TikTok e canal de WhatsApp com 40 mil pessoas.</div>
+        <span class="perfil-link">Ver no Instagram →</span>
       </a>
-      <a class="project-card reveal" href="https://www.instagram.com/tablegamesbr/" target="_blank" rel="noopener">
-        <span class="verified">✔ Perfil verificado</span>
-        <h3>@tablegamesbr <span class="arrow">↗</span></h3>
-        <div class="stat">8.663 seguidores</div>
-        <ul>
-          <li>Hamburgueria em Araguari</li>
-          <li>Criação de conteúdo, artes promocionais e campanhas para redes sociais</li>
-        </ul>
-        <div class="cta-line">Visitar Instagram →</div>
+
+      <a class="perfil reveal" href="https://www.instagram.com/viveiroflorabrasil/" target="_blank" rel="noopener">
+        <span class="perfil-selo">Agronegócio</span>
+        <div class="perfil-handle">@viveiroflorabrasil</div>
+        <div class="perfil-metrica">13 mil</div>
+        <div class="perfil-desc">Viveiro de mudas de maracujá em Araguari. Conteúdo, artes, tráfego pago e presença em Instagram e TikTok.</div>
+        <span class="perfil-link">Ver no Instagram →</span>
       </a>
-      <a class="project-card reveal" href="https://www.instagram.com/viveiroflorabrasil/" target="_blank" rel="noopener">
-        <span class="verified">✔ Perfil verificado</span>
-        <h3>@viveiroflorabrasil <span class="arrow">↗</span></h3>
-        <div class="stat">12,4 mil seguidores</div>
-        <ul>
-          <li>Viveiro de mudas de maracujá em Araguari (MG)</li>
-          <li>Conteúdo, artes e gestão de redes sociais para o negócio</li>
-        </ul>
-        <div class="cta-line">Visitar Instagram →</div>
+
+      <a class="perfil reveal" href="https://www.instagram.com/fritonopote/" target="_blank" rel="noopener">
+        <span class="perfil-selo">Food service</span>
+        <div class="perfil-handle">@fritonopote</div>
+        <div class="perfil-metrica">8,5 mil</div>
+        <div class="perfil-desc">Delivery de hambúrguer, frango frito e massa. Criação de conteúdo, artes promocionais e campanhas.</div>
+        <span class="perfil-link">Ver no Instagram →</span>
       </a>
     </div>
   </div>
 </section>
 
-<section id="editorial">
+<section id="sites">
   <div class="wrap">
-    <div class="editorial reveal">
-      <span class="kicker">artigos, web stories &amp; conteúdo editorial</span>
-      <h2>Produção de conteúdo, <em>SEO</em> e Web Stories</h2>
-      <p style="margin-top:14px; max-width:680px; color:#4b3d64;">Atuação na criação de artigos, conteúdos editoriais e Web Stories para portais digitais de diferentes nichos — entretenimento, notícias, mercado de trabalho e finanças. Desenvolvimento de pautas estratégicas, redação otimizada para SEO e análise de tendências para alcance orgânico.</p>
+    <div class="eyebrow reveal">Sites e portais</div>
+    <h2 class="reveal">Projetos que eu construí e mantenho</h2>
+    <p class="intro reveal">
+      Desenvolvimento, publicação e manutenção. Não é só o conteúdo do site, é o site.
+    </p>
 
-      <div class="portals">
-        <a class="portal-card" href="https://animeflix.com.br" target="_blank" rel="noopener"><h4>AnimeFlix <span>↗</span></h4><p>Entretenimento e cultura geek.</p></a>
-        <a class="portal-card" href="https://jornalcontabil.com.br" target="_blank" rel="noopener"><h4>Jornal Contábil <span>↗</span></h4><p>Notícias sobre contabilidade, finanças e empreendedorismo.</p></a>
-        <a class="portal-card" href="https://empregosnoexterior.com.br" target="_blank" rel="noopener"><h4>Empregos no Exterior <span>↗</span></h4><p>Dicas e oportunidades para trabalhar fora do Brasil.</p></a>
-        <a class="portal-card" href="https://meuvalordigital.com.br" target="_blank" rel="noopener"><h4>Meu Valor Digital <span>↗</span></h4><p>Marketing digital, tecnologia e negócios.</p></a>
+    <div class="lista-sites" style="margin-bottom:34px">
+      <a class="site-item reveal" href="https://passiflorabrasil.com.br/" target="_blank" rel="noopener">
+        <div>
+          <div class="site-nome">Passiflora Brasil</div>
+          <div class="site-url">passiflorabrasil.com.br</div>
+        </div>
+        <span class="site-stack">WordPress</span>
+      </a>
+      <a class="site-item reveal" href="https://viveiroflorabrasil.com.br/" target="_blank" rel="noopener">
+        <div>
+          <div class="site-nome">Viveiro Flora Brasil</div>
+          <div class="site-url">viveiroflorabrasil.com.br</div>
+        </div>
+        <span class="site-stack">WordPress</span>
+      </a>
+      <a class="site-item reveal" href="https://terravegetalnovociclo.com.br/" target="_blank" rel="noopener">
+        <div>
+          <div class="site-nome">Terra Vegetal | Novo Ciclo</div>
+          <div class="site-url">terravegetalnovociclo.com.br</div>
+        </div>
+        <span class="site-stack">WordPress</span>
+      </a>
+    </div>
+
+    <div class="eyebrow reveal" style="margin-top:46px">Conteúdo editorial</div>
+    <h3 class="reveal" style="font-size:1.4rem;margin-bottom:22px">Portais em que escrevi e planejei pauta</h3>
+    <div class="lista-sites">
+      <a class="site-item reveal" href="https://jornalcontabil.com.br" target="_blank" rel="noopener">
+        <div>
+          <div class="site-nome">Jornal Contábil</div>
+          <div class="site-url">Contabilidade, finanças e empreendedorismo</div>
+        </div>
+        <span class="site-stack">50 mi+ acessos no pico</span>
+      </a>
+      <a class="site-item reveal" href="https://meuvalordigital.com.br" target="_blank" rel="noopener">
+        <div>
+          <div class="site-nome">Meu Valor Digital</div>
+          <div class="site-url">Marketing digital, tecnologia e negócios</div>
+        </div>
+        <span class="site-stack">Parceria Grupo UOL</span>
+      </a>
+      <a class="site-item reveal" href="https://animeflix.com.br" target="_blank" rel="noopener">
+        <div>
+          <div class="site-nome">AnimeFlix</div>
+          <div class="site-url">Entretenimento e cultura geek</div>
+        </div>
+        <span class="site-stack">Projeto próprio</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="trajetoria">
+  <div class="wrap">
+    <div class="eyebrow reveal">Trajetória</div>
+    <h2 class="reveal">Onde eu construí isso</h2>
+    <p class="intro reveal">Mais de 5 anos entre veículos de comunicação digital e coordenação de marketing.</p>
+
+    <div class="linha reveal">
+      <div class="etapa">
+        <div class="etapa-cargo">Coordenadora de Marketing</div>
+        <div class="etapa-emp">Grupo Flora Brasil</div>
+        <div class="etapa-per">Desde julho de 2026</div>
+        <div class="etapa-desc">
+          Coordenação do marketing de três marcas: Viveiro Flora Brasil, Novo Ciclo e Lótus Soluções Ambientais.
+          Tráfego pago, CRM, social, conteúdo, desenvolvimento dos sites, endomarketing e painéis internos de gestão.
+        </div>
       </div>
-
-      <div class="highlights">
-        <span class="highlight-chip">✍️ Artigos otimizados para SEO</span>
-        <span class="highlight-chip">📱 Produção de Web Stories</span>
-        <span class="highlight-chip">🔎 Pesquisa de tendências</span>
-        <span class="highlight-chip">📈 Conteúdo para tráfego orgânico</span>
-        <span class="highlight-chip">🗂️ Estratégia editorial</span>
+      <div class="etapa">
+        <div class="etapa-cargo">Fundadora e editora</div>
+        <div class="etapa-emp">AnimeFlix Brasil</div>
+        <div class="etapa-desc">
+          Comunidade brasileira de notícias de anime construída do zero: portal com conteúdo otimizado para busca,
+          perfis em Instagram e TikTok e canal de WhatsApp com 40 mil pessoas.
+        </div>
+      </div>
+      <div class="etapa">
+        <div class="etapa-cargo">Gestão de conteúdo e parcerias</div>
+        <div class="etapa-emp">Meu Valor Digital</div>
+        <div class="etapa-desc">
+          Portal de marketing digital, tecnologia e negócios conduzido em parceria com o Grupo UOL.
+          Estratégia editorial, SEO e mídias sociais.
+        </div>
+      </div>
+      <div class="etapa">
+        <div class="etapa-cargo">Gestão editorial e mídias sociais</div>
+        <div class="etapa-emp">Jornal Contábil</div>
+        <div class="etapa-desc">
+          Portal de contabilidade, finanças e empreendedorismo escalado a mais de 50 milhões de acessos mensais
+          no pico, com 317 mil seguidores no perfil social.
+        </div>
       </div>
     </div>
   </div>
@@ -383,109 +588,101 @@
 
 <section id="ferramentas">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="kicker">ferramentas &amp; competências</span>
-      <h2>O que eu <em>uso</em> no dia a dia</h2>
-      <p>Ferramentas de design, análise e gestão de conteúdo para criar estratégias orientadas por resultados. Ferramentas são importantes, mas estratégia e criatividade geram resultados reais.</p>
-    </div>
-    <div class="tools-grid reveal">
-      <div class="tool-pill"><span class="ic">🎨</span>Canva</div>
-      <div class="tool-pill"><span class="ic">🖌️</span>Photoshop</div>
-      <div class="tool-pill"><span class="ic">🎬</span>CapCut</div>
-      <div class="tool-pill"><span class="ic">📐</span>Diagramação</div>
-      <div class="tool-pill"><span class="ic">🤖</span>Ferramentas de IA</div>
-      <div class="tool-pill"><span class="ic">🌐</span>WordPress</div>
-      <div class="tool-pill"><span class="ic">📊</span>Google Analytics</div>
-      <div class="tool-pill"><span class="ic">🔍</span>Search Console</div>
-      <div class="tool-pill"><span class="ic">Ⓜ️</span>Meta Business Suite</div>
-      <div class="tool-pill"><span class="ic">💬</span>WhatsApp Channels</div>
-      <div class="tool-pill"><span class="ic">🎯</span>SEO</div>
-      <div class="tool-pill"><span class="ic">✒️</span>Copywriting</div>
-      <div class="tool-pill"><span class="ic">📣</span>Mkt. de Conteúdo</div>
+    <div class="eyebrow reveal">Ferramentas</div>
+    <h2 class="reveal">Stack do dia a dia</h2>
+    <p class="intro reveal">Em roxo, as frentes em que eu opero a plataforma inteira, e não só uso.</p>
+
+    <div class="ferr-grupo reveal">
+      <div class="ferr-titulo">Mídia paga</div>
+      <div class="ferr-lista">
+        <span class="ferr destaque">Meta Ads Manager</span>
+        <span class="ferr destaque">TikTok Ads Manager</span>
+        <span class="ferr">Meta Business Suite</span>
+      </div>
     </div>
 
-    <div class="skills-row reveal">
-      <h3>Principais competências</h3>
-      <div class="skill-tags">
-        <span>Social Media</span>
-        <span>Design para Redes Sociais</span>
-        <span>Redação SEO</span>
-        <span>Análise de Dados</span>
-        <span>Pesquisa de Tendências</span>
-        <span>Conteúdo Editorial</span>
-        <span>Gestão de Comunidades</span>
-        <span>Marketing de Conteúdo</span>
-        <span>CRM</span>
-        <span>Estratégia</span>
-        <span>Liderança de Equipes</span>
+    <div class="ferr-grupo reveal">
+      <div class="ferr-titulo">Dados e análise</div>
+      <div class="ferr-lista">
+        <span class="ferr destaque">Google Analytics</span>
+        <span class="ferr destaque">Search Console</span>
+        <span class="ferr destaque">Google Apps Script</span>
+        <span class="ferr">Google Sheets</span>
+        <span class="ferr">Dashboards próprios</span>
+      </div>
+    </div>
+
+    <div class="ferr-grupo reveal">
+      <div class="ferr-titulo">CRM e relacionamento</div>
+      <div class="ferr-lista">
+        <span class="ferr destaque">Chatwoot</span>
+        <span class="ferr destaque">Umbler Talk</span>
+        <span class="ferr">Meta Cloud API</span>
+        <span class="ferr">WhatsApp Channels</span>
+      </div>
+    </div>
+
+    <div class="ferr-grupo reveal">
+      <div class="ferr-titulo">Web e desenvolvimento</div>
+      <div class="ferr-lista">
+        <span class="ferr destaque">WordPress</span>
+        <span class="ferr destaque">Elementor</span>
+        <span class="ferr">GitHub Pages</span>
+      </div>
+    </div>
+
+    <div class="ferr-grupo reveal">
+      <div class="ferr-titulo">Criação</div>
+      <div class="ferr-lista">
+        <span class="ferr">Canva</span>
+        <span class="ferr">Photoshop</span>
+        <span class="ferr">CapCut</span>
+        <span class="ferr">Diagramação</span>
+        <span class="ferr">Ferramentas de IA</span>
+        <span class="ferr">Copywriting</span>
+        <span class="ferr">SEO</span>
       </div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap results-wrap">
-    <div class="reveal">
-      <span class="kicker">diferenciais</span>
-      <h2>Resultados que fazem a <em>diferença</em></h2>
-      <ul class="diff-list">
-        <li><span class="check">✓</span> Conteúdo estratégico e alinhado com objetivos</li>
-        <li><span class="check">✓</span> Foco em SEO e tráfego orgânico</li>
-        <li><span class="check">✓</span> Atualização constante sobre tendências</li>
-        <li><span class="check">✓</span> Gestão de comunidades e relacionamento</li>
-        <li><span class="check">✓</span> Análise de dados para tomada de decisões</li>
-        <li><span class="check">✓</span> Criatividade aliada a estratégia e propósito</li>
-      </ul>
-      <p class="script" style="font-size:1.6rem; color:var(--purple-deep); margin-top:22px;">"Mais do que criar conteúdo, é sobre gerar impacto e resultados reais." 💜</p>
-      <div class="niches">
-        <span class="niche">🎮 Entretenimento &amp; Cultura Geek</span>
-        <span class="niche">📰 Notícias &amp; Finanças</span>
-        <span class="niche">💼 Empregos &amp; Carreira</span>
-        <span class="niche">🚀 Tecnologia</span>
-        <span class="niche">🍔 Gastronomia</span>
-      </div>
-    </div>
-    <div class="results-grid reveal">
-      <div class="result-card"><div class="ic">👥</div><p><b>Crescimento de audiência</b> através de conteúdo relevante e estratégico.</p></div>
-      <div class="result-card"><div class="ic">🔍</div><p><b>Mais tráfego orgânico</b> através de artigos otimizados para SEO.</p></div>
-      <div class="result-card"><div class="ic">💜</div><p><b>Aumento de engajamento</b> com conteúdo pensado para cada plataforma.</p></div>
-      <div class="result-card"><div class="ic">🤝</div><p><b>Retenção e fidelização</b> de público com conteúdos que informam e conectam.</p></div>
-      <div class="result-card"><div class="ic">⭐</div><p><b>Fortalecimento de marca</b> posicionada nos tópicos mais relevantes.</p></div>
-      <div class="result-card"><div class="ic">📚</div><p><b>Diversidade de formatos</b> de conteúdo para diferentes canais e audiências.</p></div>
-    </div>
-  </div>
-</section>
-
-<footer id="contato">
+<section id="contato">
   <div class="wrap">
-    <div class="contact-head reveal">
-      <div class="script">Obrigada! 💜</div>
-      <p>É um prazer fazer parte da sua jornada. Vamos conversar sobre o seu próximo projeto?</p>
+    <div class="contato reveal">
+      <h2>Vamos conversar?</h2>
+      <p>
+        Estou aberta a posições remotas de coordenação ou gestão de marketing digital.
+        Respondo rápido e topo conversar sobre o desafio antes de falar de processo.
+      </p>
+      <div class="contato-btns">
+        <a href="https://wa.me/553491348533" target="_blank" rel="noopener" class="btn btn-branco">WhatsApp (34) 99134-8533</a>
+        <a href="mailto:vanessamarquesfr@gmail.com" class="btn btn-borda">vanessamarquesfr@gmail.com</a>
+        <a href="https://www.linkedin.com/in/vanessa-marques-freitas/" target="_blank" rel="noopener" class="btn btn-borda">LinkedIn</a>
+        <a href="https://drive.google.com/file/d/14VHlcCUdP0VndJkhGotBTN-j9uCj7znG/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-borda">Ver currículo</a>
+      </div>
     </div>
-    <div class="contact-grid reveal">
-      <a class="contact-card" href="https://wa.me/553491348533" target="_blank" rel="noopener">
-        <div class="ic">💬</div><div class="label">WhatsApp</div><div class="val">(34) 99134-8533</div>
-      </a>
-      <a class="contact-card" href="mailto:vanessamarquesfr@gmail.com">
-        <div class="ic">📧</div><div class="label">E-mail</div><div class="val">vanessamarquesfr@gmail.com</div>
-      </a>
-      <a class="contact-card" href="https://www.linkedin.com/in/vanessa-marques-freitas/" target="_blank" rel="noopener">
-        <div class="ic">💼</div><div class="label">LinkedIn</div><div class="val">in/vanessa-marques-freitas</div>
-      </a>
-    </div>
-    <div class="foot-bottom wrap">
-      <span>© 2026 Vanessa Marques — Publicitária, Social Media &amp; Designer</span>
-      <span>@vanessamarques.sm</span>
-    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 Vanessa Marques. Coordenadora de Marketing Digital.</span>
+    <span>Araguari, MG. Disponível para trabalho remoto.</span>
   </div>
 </footer>
 
 <script>
-  const els = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  els.forEach(el=>io.observe(el));
+  var alvos = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    alvos.forEach(function(el){ io.observe(el); });
+  } else {
+    alvos.forEach(function(el){ el.classList.add('in'); });
+  }
 </script>
 
 </body>
